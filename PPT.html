@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +9,7 @@
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-  }
-  .slide {
-    display: none;
+    display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -19,8 +17,24 @@
     color: white;
     text-align: center;
   }
+  .slide {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    color: white;
+    text-align: center;
+  }
   .active {
     display: flex;
+  }
+  button {
+    margin: 10px;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
   }
 </style>
 </head>
@@ -41,6 +55,9 @@
 <div id="slide4" class="slide" style="background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);">
   <h1>请享用</h1>
 </div>
+
+<button onclick="prevSlide()">上一页</button>
+<button onclick="nextSlide()">下一页</button>
 
 <script>
   let currentSlide = 1;
@@ -72,15 +89,6 @@
   function prevSlide() {
     showSlide(currentSlide - 1);
   }
-
-  // Add event listeners for swipe gestures (for mobile devices)
-  document.addEventListener('swipeleft', function() {
-    nextSlide();
-  });
-
-  document.addEventListener('swiperight', function() {
-    prevSlide();
-  });
 </script>
 
 </body>
